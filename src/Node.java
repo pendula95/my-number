@@ -32,10 +32,10 @@ public class Node implements Comparable<Node> {
         int indexReplace = random.nextInt(operators.size());
         int indexNew = random.nextInt(Main.OPERATORS.length);
         //if the new operator is same as the old one, select one randomly again
-        if(operators.get(indexReplace).equals(Main.OPERATORS[indexNew])) {
-            if(indexNew > 0) {
+        if (operators.get(indexReplace).equals(Main.OPERATORS[indexNew])) {
+            if (indexNew > 0) {
                 indexNew--;
-            }else {
+            } else {
                 indexNew = 1;
             }
         }
@@ -51,10 +51,10 @@ public class Node implements Comparable<Node> {
         int rnd1 = random.nextInt(numbers.size());
         String tmp1 = numbers.get(rnd1);
         int rnd2 = random.nextInt(numbers.size());
-        if(rnd1 == rnd2) {
-            if(rnd2 > 0) {
+        if (rnd1 == rnd2) {
+            if (rnd2 > 0) {
                 rnd2--;
-            }else{
+            } else {
                 rnd2 = 1;
             }
         }

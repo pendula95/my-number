@@ -6,12 +6,12 @@ import java.util.Vector;
 
 public class Main {
 
+    static final String[] OPERATORS = {"+", "-", "*", "/"};
     private static final int POPULATION_SIZE = 50;
     private static final int OPERANDS_MUTATION_CHANCE = 6;
-    static final String[] OPERATORS = {"+", "-", "*", "/"};
     private static final int GROUP_CHANCE = 3;
+    private static Random random = new Random();
     static int FINAL_VALUE;
-    public static Random random = new Random();
 
     public static void main(String args[]) throws IOException {
 
@@ -50,9 +50,11 @@ public class Main {
 
                 //if cost is 0 that means we found the FINAL_VALUE
                 if (best.getCost() == 0.0) {
-                    System.out.println("Found solution for input " + p + " tests generation: " + generation);
+                    System.out.println("Found solution for input " + p + " test generation: " + generation);
                     System.out.println(best.getEq() + " = " + best.getValue());
                     System.out.println("##########################################################");
+                    reader.close();
+                    in.close();
                     break;
                 }
 
@@ -106,15 +108,15 @@ public class Main {
             //adds operator to the list of operators that will be passed to the node
             operatorsUsed.add(operatorUsed);
             if (open) {
-                sb.append("( " + number + " " + operatorUsed + " ");
+                sb.append("( ").append(number).append(" ").append(operatorUsed).append(" ");
                 opened++;
                 open = false;
             } else if (close) {
-                sb.append(number + " )" + " " + operatorUsed + " ");
+                sb.append(number).append(" )").append(" ").append(operatorUsed).append(" ");
                 opened--;
                 close = false;
             } else {
-                sb.append(number + " " + operatorUsed + " ");
+                sb.append(number).append(" ").append(operatorUsed).append(" ");
             }
             if (size-- == 0) {
                 break;

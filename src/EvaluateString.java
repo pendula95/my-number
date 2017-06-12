@@ -1,6 +1,7 @@
 import java.util.Stack;
 
 public class EvaluateString {
+
     public static double evaluate(String expression) {
         char[] tokens = expression.toCharArray();
 
@@ -60,7 +61,7 @@ public class EvaluateString {
 
     // Returns true if 'op2' has higher or same precedence as 'op1',
     // otherwise returns false.
-    public static boolean hasPrecedence(char op1, char op2) {
+    private static boolean hasPrecedence(char op1, char op2) {
         if (op2 == '(' || op2 == ')')
             return false;
         if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-'))
@@ -71,7 +72,7 @@ public class EvaluateString {
 
     // A utility method to apply an operator 'op' on operands 'a' 
     // and 'b'. Return the result.
-    public static double applyOp(char op, double b, double a) {
+    private static double applyOp(char op, double b, double a) {
         switch (op) {
             case '+':
                 return a + b;
